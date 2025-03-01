@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_rest_passwordreset',
     'django_filters',
+    'drf_yasg',
     'authentication',
     'juegos',
 ]

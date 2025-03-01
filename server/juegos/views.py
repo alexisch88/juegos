@@ -6,13 +6,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Game 
 from .serializers import GameSerializer 
 from django.shortcuts import get_object_or_404
+
+
 #Listar
 class GameViewSet(viewsets.ModelViewSet):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
-
-    
-       
 
     # Sistema de filtros
     filter_backends = [DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter]
@@ -24,14 +23,6 @@ class GameViewSet(viewsets.ModelViewSet):
     pagination_class = PageNumberPagination
     pagination_class.page_size = 8  # juegos por página
     
-
-
-    
-    
-    
-
-
-
 
 # CREATE
 class GameCreateView(generics.CreateAPIView):
@@ -51,7 +42,7 @@ class GameCreateView(generics.CreateAPIView):
     
 
 
- # UPDATE
+# UPDATE
 
 class GameDetailAPIView(APIView):
     queryset = Game.objects.all()
@@ -69,8 +60,3 @@ class GameDetailAPIView(APIView):
         except Exception as e:
             print(str(e))
             return Response({"mensaje": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-    
-   
-    
-       
-
